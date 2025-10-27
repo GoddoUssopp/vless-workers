@@ -89,7 +89,7 @@ export default {
                         } catch (connectError) {
                             return new Response(connectError.message, { status: 500 });
                         }
-                    case `/${userID}`: {
+                    case `/id`: {
                         const vlessConfig = getVLESSConfig(userID, request.headers.get('Host'));
                         return new Response(`${vlessConfig}`, {
                             status: 200,
@@ -757,7 +757,7 @@ port：443 or CF supported TLS port
 UUID：${userID}
 transmission：ws
 Transport Layer Security：TLS
-domain name：${hostName}
+host：${hostName}
 path：/%2Fhttps%3A%2F%2Ft.me%2Fclub_gratis
 SNI domain name：${hostName}
 
@@ -769,7 +769,7 @@ address：${hostName} or CF preferred IP
 port：80 or a non-TLS port supported by CF
 UUID：${userID}
 transmission：ws
-domain name：${hostName}
+host：${hostName}
 path：/%2Fhttps%3A%2F%2Ft.me%2Fclub_gratis
 
 ${vlessLink}
